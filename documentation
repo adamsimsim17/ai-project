@@ -1,0 +1,28 @@
+Project Report: ASL Fingerspelling Assistant (ASL Alphabet)
+1. Project Objective
+The objective of this project is to design, train, and evaluate a Deep Learning system capable of recognizing American Sign Language (ASL) letters from static images1. This tool serves as an accessibility technology for the hearing-impaired by translating manual fingerspelling into digital text2. The project focuses on solving a real-world image classification problem using Convolutional Neural Networks (CNNs) and Transfer Learning.
+2. Methodology
+2.1 Dataset Preparation
+•	Source: ASL Alphabet Dataset (Kaggle).
+•	Preprocessing: Images were standardized and resized to 224 \times 224 for ResNet/EfficientNet and 299 \times 299 for InceptionV3.
+•	Augmentation: To handle lighting and pose variability, strong augmentations were applied, including lighting variation and random backgrounds.
+2.2 Model Architectures (Transfer Learning)
+Experimentation was conducted with three distinct CNN architectures to analyze and compare performance:
+1.	ResNet50: A deep residual model used to leverage skip connections for stable training.
+2.	InceptionV3: Implemented to utilize multi-scale feature extraction through inception modules.
+3.	EfficientNetB0: Selected for its optimized efficiency through compound scaling of depth, width, and resolution.
+2.3 Explainability via Grad-CAM
+To interpret model predictions and ensure technical transparency, Grad-CAM (Gradient-weighted Class Activation Mapping) was implemented.
+•	Method: Gradients were extracted from the final convolutional layer of each backbone to create a localization map12.
+•	Implementation: The Grad-CAM logic was designed to navigate nested functional models, ensuring the gradient flow remained connected from the output back to the feature maps.
+•	Outcome: The heatmaps visualize the model's "attention," confirming it focuses on key hand gestures rather than background noise.
+3. Evaluation and Results
+The models were evaluated and compared based on several technical components13131313:
+•	Accuracy, Precision, and Recall: Detailed metrics were calculated for all 26 alphabet classes.
+•	Confusion Matrix: Used to analyze classification performance and identify similar signs that the model may confuse.
+•	Architectural Analysis: A comparison was performed between the three networks to determine which architecture provided the most reliable interpretability and accuracy1616.
+4. Repository Management (GitHub)
+The project is hosted in a well-structured GitHub repository to meet professional version control and documentation standards:
+•	Organization: The repository maintains separate folders for data/, models/, and docs/18.
+•	Documentation: A comprehensive README includes setup instructions, dependency lists, and model results.
+•	Commit History: Progress is documented through a clean commit history covering data updates and model changes.
